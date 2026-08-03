@@ -54,7 +54,7 @@ public class TextUtilTest {
     public void test_is_palindrome_null() {
        
         boolean result = isPalindrome(null);
-        Assert.assertFalse(result);
+        Assert.assertFalse(result, "null bukan palindrome");
     }
     
     @Test
@@ -82,13 +82,13 @@ public class TextUtilTest {
     public void test_count_vowels_empty() {
         String input = "";
         int result = countVowels(input);
-        Assert.assertEquals(result, 0);
+        Assert.assertEquals(result, 0, "String kosong harus memiliki 0 vokal");
     }
 
     @Test
     public void test_count_vowels_null() {
         int result = countVowels(null);
-        Assert.assertEquals(result, 0);
+        Assert.assertEquals(result, 0, "null harus memiliki 0 vokal"    );
     }
 
     @AfterClass

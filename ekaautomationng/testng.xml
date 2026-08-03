@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+ 
+ <!-- mvn test "-Dsurefire.suiteXmlFiles=testng.xml" -->
+
+<suite name="SuiteLatihanTestNG" verbose="1">
+    <test name="TestDasar">
+        <classes>
+            <class name="id.co.juaracoding.testng.TextUtilTest"/>
+        </classes>
+    </test>
+ 
+    <!-- <test name="TestSmokeSaja">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="id.co.juaracoding.testng.GroupingTest"/>
+        </classes>
+    </test> -->
+ 
+</suite>
