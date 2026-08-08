@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import id.co.juaracoding.selenium.pages.DashboardPage;
 import id.co.juaracoding.selenium.pages.LoginPage;
+import id.co.juaracoding.util.TestConfig;
 
 public class LoginTest extends BaseSeleniumTest {
 
@@ -16,8 +17,11 @@ public class LoginTest extends BaseSeleniumTest {
     @Test(priority = 0)
     public void should_redirect_to_dashboard_when_login_valid_admin() {
         bukaHalamanLogin();
+        String usernameAdmin = TestConfig.ADMIN_USERNAME;
+        String passwordAdmin = TestConfig.ADMIN_PASSWORD;
+        String expectedAdminName = TestConfig.ADMIN_LOGIN_NAME;
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.loginAs("admin1", "Admin1@123");
+        loginPage.loginAs(usernameAdmin, passwordAdmin);
 
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.urlContains("/dashboard"));
 
@@ -25,15 +29,18 @@ public class LoginTest extends BaseSeleniumTest {
                 "Setelah login valid, browser harus pindah ke /dashboard. URL aktual: " + driver.getCurrentUrl());
 
         DashboardPage dashboardPage = new DashboardPage(driver);
-        Assert.assertTrue(dashboardPage.getLoggedInUserName().contains("Admin Satu"),
+        Assert.assertTrue(dashboardPage.getLoggedInUserName().contains(expectedAdminName),
                 "Nama user yang login harus tampil di navbar");
     }
 
     @Test(priority = 0)
     public void should_redirect_to_dashboard_when_login_valid_customer() {
         bukaHalamanLogin();
+        String usernameCustomer = TestConfig.CUSTOMER_USERNAME;
+        String passwordCustomer = TestConfig.CUSTOMER_PASSWORD;
+        String expectedUserName = TestConfig.CUSTOMER_LOGIN_NAME;
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.loginAs("ekanaradhipa6", "Password123#");
+        loginPage.loginAs(usernameCustomer, passwordCustomer);
 
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.urlContains("/dashboard"));
 
@@ -41,15 +48,16 @@ public class LoginTest extends BaseSeleniumTest {
                 "Setelah login valid, browser harus pindah ke /dashboard. URL aktual: " + driver.getCurrentUrl());
 
         DashboardPage dashboardPage = new DashboardPage(driver);
-        Assert.assertTrue(dashboardPage.getLoggedInUserName().contains("Ekanaradhipa Djacaria Enam"), "Nama user yang login harus tampil di navbar");
+        Assert.assertTrue(dashboardPage.getLoggedInUserName().contains(expectedUserName), "Nama user yang login harus tampil di navbar");
     }
 
     @Test(priority = 1)
     public void should_show_error_toast_when_password_and_captcha_invalid() {
+        String usernameCustomer = TestConfig.CUSTOMER_USERNAME;
         bukaHalamanLogin();
         BaseSeleniumTest.delay();
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.fillUsername("admin1");
+        loginPage.fillUsername(usernameCustomer);
         loginPage.fillPassword("SalahPassword123");
         loginPage.fillCaptcha("salahcaptcha");
         loginPage.clickLogin();
@@ -60,11 +68,13 @@ public class LoginTest extends BaseSeleniumTest {
 
     @Test(priority = 2)
     public void should_show_error_toast_when_captcha_invalid() {
+        String usernameCustomer = TestConfig.CUSTOMER_USERNAME;
+        String passwordCustomer = TestConfig.CUSTOMER_PASSWORD;
         bukaHalamanLogin();
         BaseSeleniumTest.delay();
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.fillUsername("admin1");
-        loginPage.fillPassword("Admin1@123");
+        loginPage.fillUsername(usernameCustomer);
+        loginPage.fillPassword(passwordCustomer);
         loginPage.fillCaptcha("salahcaptcha");
         loginPage.clickLogin();
 

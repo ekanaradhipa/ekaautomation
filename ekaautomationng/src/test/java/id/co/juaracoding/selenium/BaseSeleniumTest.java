@@ -12,11 +12,12 @@ import org.testng.annotations.BeforeMethod;
 
 import id.co.juaracoding.selenium.pages.LicenseGatePage;
 import id.co.juaracoding.selenium.pages.LoginPage;
+import id.co.juaracoding.util.TestConfig;
 
 public class BaseSeleniumTest {
 
-    public static final String BASE_URL = "http://localhost:8080";
-    public static final String LICENSE_KEY = "d461265dd7323fef9755bb3257275d67";
+    public static final String BASE_URL = TestConfig.BASE_URL;
+    public static final String LICENSE_KEY = TestConfig.LICENSE_KEY;
     public static final Long delay = 1500L;
     protected WebDriver driver;
 
@@ -46,11 +47,11 @@ public class BaseSeleniumTest {
     }
 
     protected void bukaHalaman(String path) {
-        driver.get(BASE_URL + path);// http://localhost:8080/login
+        driver.get(BASE_URL + path);
         LicenseGatePage licenseGatePage = new LicenseGatePage(driver);
         if (licenseGatePage.isDisplayed()) {
             licenseGatePage.activate(LICENSE_KEY);
-            driver.get(BASE_URL + path); // lihat jebakan §8.2
+            driver.get(BASE_URL + path); 
         }
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.urlContains(path));
     }
