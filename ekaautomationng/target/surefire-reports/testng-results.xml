@@ -1,65 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="11" passed="11" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-08-03T11:19:16 WIB" name="Surefire suite" finished-at="2026-08-03T11:19:16 WIB" duration-ms="112">
+  <suite started-at="2026-08-10T00:10:59 WIB" name="Surefire suite" finished-at="2026-08-10T00:11:10 WIB" duration-ms="11760">
     <groups>
     </groups>
-    <test started-at="2026-08-03T11:19:16 WIB" name="Surefire test" finished-at="2026-08-03T11:19:16 WIB" duration-ms="112">
-      <class name="id.co.juaracoding.testng.TextUtilTest">
-        <test-method is-config="true" signature="before_class_method()[pri:0, instance:id.co.juaracoding.testng.TextUtilTest@11a9e7c8]" started-at="2026-08-03T11:19:16 WIB" name="before_class_method" finished-at="2026-08-03T11:19:16 WIB" duration-ms="16" status="PASS">
+    <test started-at="2026-08-10T00:10:59 WIB" name="Surefire test" finished-at="2026-08-10T00:11:10 WIB" duration-ms="11760">
+      <class name="id.co.juaracoding.selenium.ForgotPasswordTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:id.co.juaracoding.selenium.ForgotPasswordTest@2bbf180e]" started-at="2026-08-10T00:10:59 WIB" name="setUp" finished-at="2026-08-10T00:11:01 WIB" duration-ms="1785" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- before_class_method -->
-        <test-method signature="test_count_vowels()[pri:0, instance:id.co.juaracoding.testng.TextUtilTest@11a9e7c8]" started-at="2026-08-03T11:19:16 WIB" name="test_count_vowels" finished-at="2026-08-03T11:19:16 WIB" duration-ms="7" status="PASS">
+        </test-method> <!-- setUp -->
+        <test-method signature="open_forgot_password_page()[pri:0, instance:id.co.juaracoding.selenium.ForgotPasswordTest@2bbf180e]" started-at="2026-08-10T00:11:01 WIB" name="open_forgot_password_page" finished-at="2026-08-10T00:11:02 WIB" duration-ms="1193" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test_count_vowels -->
-        <test-method signature="test_count_vowels_empty()[pri:0, instance:id.co.juaracoding.testng.TextUtilTest@11a9e7c8]" started-at="2026-08-03T11:19:16 WIB" name="test_count_vowels_empty" finished-at="2026-08-03T11:19:16 WIB" duration-ms="3" status="PASS">
+        </test-method> <!-- open_forgot_password_page -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:id.co.juaracoding.selenium.ForgotPasswordTest@2bbf180e]" started-at="2026-08-10T00:11:02 WIB" name="tearDown" finished-at="2026-08-10T00:11:02 WIB" duration-ms="276" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test_count_vowels_empty -->
-        <test-method signature="test_count_vowels_mixed_case()[pri:0, instance:id.co.juaracoding.testng.TextUtilTest@11a9e7c8]" started-at="2026-08-03T11:19:16 WIB" name="test_count_vowels_mixed_case" finished-at="2026-08-03T11:19:16 WIB" duration-ms="1" status="PASS">
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:id.co.juaracoding.selenium.ForgotPasswordTest@2bbf180e]" started-at="2026-08-10T00:11:02 WIB" name="setUp" finished-at="2026-08-10T00:11:03 WIB" duration-ms="1046" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test_count_vowels_mixed_case -->
-        <test-method signature="test_count_vowels_null()[pri:0, instance:id.co.juaracoding.testng.TextUtilTest@11a9e7c8]" started-at="2026-08-03T11:19:16 WIB" name="test_count_vowels_null" finished-at="2026-08-03T11:19:16 WIB" duration-ms="1" status="PASS">
+        </test-method> <!-- setUp -->
+        <test-method signature="submit_forgot_password_form_with_valid_email()[pri:1, instance:id.co.juaracoding.selenium.ForgotPasswordTest@2bbf180e]" started-at="2026-08-10T00:11:03 WIB" name="submit_forgot_password_form_with_valid_email" finished-at="2026-08-10T00:11:05 WIB" duration-ms="2357" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test_count_vowels_null -->
-        <test-method signature="test_count_vowels_zero()[pri:0, instance:id.co.juaracoding.testng.TextUtilTest@11a9e7c8]" started-at="2026-08-03T11:19:16 WIB" name="test_count_vowels_zero" finished-at="2026-08-03T11:19:16 WIB" duration-ms="1" status="PASS">
+        </test-method> <!-- submit_forgot_password_form_with_valid_email -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:id.co.juaracoding.selenium.ForgotPasswordTest@2bbf180e]" started-at="2026-08-10T00:11:05 WIB" name="tearDown" finished-at="2026-08-10T00:11:06 WIB" duration-ms="215" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test_count_vowels_zero -->
-        <test-method signature="test_is_not_palindrome()[pri:0, instance:id.co.juaracoding.testng.TextUtilTest@11a9e7c8]" started-at="2026-08-03T11:19:16 WIB" name="test_is_not_palindrome" finished-at="2026-08-03T11:19:16 WIB" duration-ms="2" status="PASS">
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:id.co.juaracoding.selenium.ForgotPasswordTest@2bbf180e]" started-at="2026-08-10T00:11:06 WIB" name="setUp" finished-at="2026-08-10T00:11:07 WIB" duration-ms="938" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test_is_not_palindrome -->
-        <test-method signature="test_is_not_palindrome_mixed_case()[pri:0, instance:id.co.juaracoding.testng.TextUtilTest@11a9e7c8]" started-at="2026-08-03T11:19:16 WIB" name="test_is_not_palindrome_mixed_case" finished-at="2026-08-03T11:19:16 WIB" duration-ms="1" status="PASS">
+        </test-method> <!-- setUp -->
+        <test-method signature="submit_forgot_password_form_with_invalid_email()[pri:2, instance:id.co.juaracoding.selenium.ForgotPasswordTest@2bbf180e]" started-at="2026-08-10T00:11:07 WIB" name="submit_forgot_password_form_with_invalid_email" finished-at="2026-08-10T00:11:10 WIB" duration-ms="3689" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test_is_not_palindrome_mixed_case -->
-        <test-method signature="test_is_palindrome()[pri:0, instance:id.co.juaracoding.testng.TextUtilTest@11a9e7c8]" started-at="2026-08-03T11:19:16 WIB" name="test_is_palindrome" finished-at="2026-08-03T11:19:16 WIB" duration-ms="1" status="PASS">
+        </test-method> <!-- submit_forgot_password_form_with_invalid_email -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:id.co.juaracoding.selenium.ForgotPasswordTest@2bbf180e]" started-at="2026-08-10T00:11:10 WIB" name="tearDown" finished-at="2026-08-10T00:11:10 WIB" duration-ms="197" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test_is_palindrome -->
-        <test-method signature="test_is_palindrome_empty()[pri:0, instance:id.co.juaracoding.testng.TextUtilTest@11a9e7c8]" started-at="2026-08-03T11:19:16 WIB" name="test_is_palindrome_empty" finished-at="2026-08-03T11:19:16 WIB" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test_is_palindrome_empty -->
-        <test-method signature="test_is_palindrome_mixed_case()[pri:0, instance:id.co.juaracoding.testng.TextUtilTest@11a9e7c8]" started-at="2026-08-03T11:19:16 WIB" name="test_is_palindrome_mixed_case" finished-at="2026-08-03T11:19:16 WIB" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test_is_palindrome_mixed_case -->
-        <test-method signature="test_is_palindrome_null()[pri:0, instance:id.co.juaracoding.testng.TextUtilTest@11a9e7c8]" started-at="2026-08-03T11:19:16 WIB" name="test_is_palindrome_null" finished-at="2026-08-03T11:19:16 WIB" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test_is_palindrome_null -->
-        <test-method is-config="true" signature="after_class_method()[pri:0, instance:id.co.juaracoding.testng.TextUtilTest@11a9e7c8]" started-at="2026-08-03T11:19:16 WIB" name="after_class_method" finished-at="2026-08-03T11:19:16 WIB" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- after_class_method -->
-      </class> <!-- id.co.juaracoding.testng.TextUtilTest -->
+        </test-method> <!-- tearDown -->
+      </class> <!-- id.co.juaracoding.selenium.ForgotPasswordTest -->
     </test> <!-- Surefire test -->
   </suite> <!-- Surefire suite -->
 </testng-results>
