@@ -3,6 +3,7 @@ package id.co.juaracoding.selenium.pages;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -67,7 +68,24 @@ public class RegisterPage {
     }
 
     public void fillBirthDate(String birthDate) {
-        methodPage.typeText(birthDateInput, birthDate, wait);
+        WebElement el = findInputField(birthDateInput);
+        wait.until(ExpectedConditions.visibilityOf(el));
+        el.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
+        el.sendKeys(birthDate);
+        el.sendKeys(Keys.ENTER);
+        el.sendKeys(Keys.TAB);
+    }
+
+    private WebElement findInputField(By locator) {
+        WebElement el = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        if (el.getTagName().equalsIgnoreCase("input") || el.getTagName().equalsIgnoreCase("textarea")) {
+            return el;
+        }
+        try {
+            return el.findElement(By.tagName("input"));
+        } catch (Exception e) {
+            return el;
+        }
     }
 
     public void fillIdCard(String idCard) {
@@ -117,6 +135,15 @@ public class RegisterPage {
 
     public void clickSubmit() {
         wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+    }
+
+    public boolean isSubmitButtonClickable() {
+        try {
+            WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(submitButton));
+            return btn.isEnabled();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public void clickMagicLink() {
