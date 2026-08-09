@@ -60,6 +60,10 @@ public class BaseSeleniumTest {
         bukaHalaman("/login");
     }
 
+    protected void BukaHalamanRegister() {
+       bukaHalaman("/register");
+    }
+
     protected void loginSebagai(String username, String password) {
         bukaHalamanLogin();
         new LoginPage(driver).loginAs(username, password);

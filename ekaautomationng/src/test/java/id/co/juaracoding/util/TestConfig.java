@@ -9,9 +9,12 @@ public class TestConfig {
     public static final String ADMIN_PASSWORD = "Admin1@123";
     public static final String ADMIN_LOGIN_NAME = "Admin Satu";
 
-    public static final String CUSTOMER_USERNAME = "ekanaradhipa6";
-    public static final String CUSTOMER_PASSWORD = "Password123#";
-    public static final String CUSTOMER_LOGIN_NAME = "Ekanaradhipa Djacaria Enam";
+    public static final String CUSTOMER_USERNAME = "customer1";
+    public static final String CUSTOMER_PASSWORD = "Customer1@123";
+    public static final String CUSTOMER_LOGIN_NAME = "Customer Satu";
+    public static final String CUSTOMER_EMAIL = "customer1@simpleapps.test";
+    public static final String NEW_USER_USERNAME = "CustomerNEW";
+    public static final String NEW_USER_PASSWORD = "Password123#";
 
 
     
