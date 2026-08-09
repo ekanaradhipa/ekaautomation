@@ -150,4 +150,9 @@ public class RegisterPage {
         wait.until(ExpectedConditions.elementToBeClickable(magicLink)).click();
     }
 
+    public boolean isMagicLinkShown() {
+        WebElement link = wait.until(ExpectedConditions.presenceOfElementLocated(magicLink));
+        return link.isDisplayed();
+    }
+
 }

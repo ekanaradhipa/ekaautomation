@@ -33,7 +33,7 @@ public class RegisterTest extends BaseSeleniumTest {
         Assert.assertTrue(driver.getCurrentUrl().contains("/register"), "Setelah membuka halaman register, URL harus mengandung /register. URL aktual: " + driver.getCurrentUrl());
         Assert.assertTrue(registerPage.isSubmitButtonClickable(), "Tombol submit bisa diklik");
         registerPage.clickSubmit();
-       // Assert.assertTrue(driver.getCurrentUrl().contains("/check-email"), "URL harus mengandung /check-email. URL aktual: " + driver.getCurrentUrl());
+        Assert.assertTrue(registerPage.isMagicLinkShown(), "Magic link muncul setelah submit form register");
     }
 
     @Test(priority = 0)
