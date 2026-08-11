@@ -55,11 +55,10 @@ public class ForgetPasswordApiTest extends BaseRestAssuredTest {
                 "{\"email\":\"ekanaradhipad@gmail.com\",\"captcha_answer\":\"%s\",\"captcha_hash\":\"%s\"}",
                 captcha[1],
                 captcha[0])).post("/api/v1/forgot-password");
-        // ekanaradhipad@gmail.com
+      
 
         System.out.println("Response : " + response.asPrettyString());
-        // 🔴 TETAP 200 — server TIDAK BOLEH membedakan email terdaftar vs tidak.
-        response.then()
+                response.then()
                 .statusCode(200)
                 .body("status", equalTo("SUCCESS"))
                 .body("data.magic_link", nullValue());
