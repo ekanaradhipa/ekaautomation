@@ -8,6 +8,7 @@ public class TestConfig {
     public static final String ADMIN_USERNAME = "admin1";
     public static final String ADMIN_PASSWORD = "Admin1@123";
     public static final String ADMIN_LOGIN_NAME = "Admin Satu";
+    public static final String ADMIN_EMAIL = "admin1@simpleapps.test";
 
     public static final String CUSTOMER_USERNAME = "customer1";
     public static final String CUSTOMER_PASSWORD = "Customer1@123";
@@ -15,7 +16,7 @@ public class TestConfig {
     public static final String CUSTOMER_EMAIL = "customer1@simpleapps.test";
     public static final String NEW_USER_USERNAME = "CustomerNEW";
     public static final String NEW_USER_PASSWORD = "Password123#";
-
+ 
 
     
 }
