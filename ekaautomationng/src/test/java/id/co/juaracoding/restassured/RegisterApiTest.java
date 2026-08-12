@@ -11,14 +11,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import id.co.juaracoding.restassured.util.RsaHelper;
+import id.co.juaracoding.util.TestConfig;
 import io.restassured.response.Response;
 
 
 public class RegisterApiTest extends BaseRestAssuredTest {
 
- String username = "";
+    String username = "";
     String token = "";
-    final String password = "Resta123@1";
+    final String password = TestConfig.NEW_USER_PASSWORD;
     JSONObject json = new JSONObject();
 
     private String angkaUnik() {
@@ -37,9 +38,8 @@ public class RegisterApiTest extends BaseRestAssuredTest {
 
         String unik = angkaUnik();
         String[] captcha = ambilCaptcha();
-        // 1785933028536
-        username = "resta" + unik.substring(unik.length() - 8);
-        String emailPlain = "resta" + unik + "@example.com";
+        username = "userbaru" + unik.substring(unik.length() - 8);
+        String emailPlain = "userbaru" + unik + "@example.com";
         String phonePlain = "08" + unik.substring(unik.length() - 9);
         String ktpPlain = "300" + unik;
         String npwpPlain = "310" + unik;

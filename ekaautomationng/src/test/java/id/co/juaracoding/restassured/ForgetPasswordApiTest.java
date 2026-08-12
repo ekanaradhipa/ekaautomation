@@ -11,7 +11,7 @@ import io.restassured.response.Response;
 
 public class ForgetPasswordApiTest extends BaseRestAssuredTest {
 
-     String magicLink = "";
+    String magicLink = "";
     String token = "";
 
     @Test(priority = 0)
@@ -19,9 +19,10 @@ public class ForgetPasswordApiTest extends BaseRestAssuredTest {
         String[] captcha = ambilCaptcha();
 
         Response response = specDasar().body(String.format(
-                "{\"email\":" + TestConfig.CUSTOMER_EMAIL + ",\"captcha_answer\":\"%s\",\"captcha_hash\":\"%s\"}",
-                captcha[1], captcha[0])).post("/api/v1/forgot-password");
+                "{\"email\":\"%s\",\"captcha_answer\":\"%s\",\"captcha_hash\":\"%s\"}",
+                 TestConfig.CUSTOMER_EMAIL,captcha[1], captcha[0])).post("/api/v1/forgot-password");
         magicLink = response.jsonPath().getString("data.magic_link");
+        System.out.println("MAGIC LINK " + magicLink);
         token = magicLink.replace("http://localhost:8080/reset-password?token=", "");
         System.out.println("TOKEN " + token);
         response.then()
@@ -35,12 +36,12 @@ public class ForgetPasswordApiTest extends BaseRestAssuredTest {
         if (token.equals("")) {
             Assert.assertEquals(1, 2);
         }
-        String[] captcha = ambilCaptcha();
-        String password = TestConfig.NEW_USER_PASSWORD;
+        //String[] captcha = ambilCaptcha();
+        String password = TestConfig.CUSTOMER_PASSWORD;
         Response response = specDasar().body(String.format(
-                "{\"email\":" + TestConfig.CUSTOMER_EMAIL + ",\"password\":\"%s\",\"confirm_password\":\"%s\",\"token\":\"%s\"}",
-                password, password, token)).post("/api/v1/reset-password");
-        System.out.println("Body : " + response.asPrettyString());
+                "{\"email\":\"%s\",\"password\":\"%s\",\"confirm_password\":\"%s\",\"token\":\"%s\"}",
+                TestConfig.CUSTOMER_EMAIL, password, password, token)).post("/api/v1/reset-password");
+        //System.out.println("Body : " + response.asPrettyString());
         response.then()
                 .statusCode(200)
                 .body("status", equalTo("SUCCESS"))
@@ -52,12 +53,11 @@ public class ForgetPasswordApiTest extends BaseRestAssuredTest {
         String[] captcha = ambilCaptcha();
 
         Response response = specDasar().body(String.format(
-                "{\"email\":\"ekanaradhipad@gmail.com\",\"captcha_answer\":\"%s\",\"captcha_hash\":\"%s\"}",
+                "{\"email\":\"ekanaradi@mail.com\",\"captcha_answer\":\"%s\",\"captcha_hash\":\"%s\"}",
                 captcha[1],
                 captcha[0])).post("/api/v1/forgot-password");
       
-
-        System.out.println("Response : " + response.asPrettyString());
+        //System.out.println("Response : " + response.asPrettyString());
                 response.then()
                 .statusCode(200)
                 .body("status", equalTo("SUCCESS"))
