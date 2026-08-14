@@ -64,4 +64,9 @@ public class LoginPage {
     public boolean isErrorToastShown() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(errorToastIcon)) != null;
     }
+
+    public boolean isLoginButtonEnabled() {
+        WebElement button = driver.findElement(loginButton);
+        return button.isEnabled();
+    }
 }
