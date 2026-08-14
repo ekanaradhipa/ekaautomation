@@ -1,5 +1,6 @@
 package id.co.juaracoding.cucumber.web;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import id.co.juaracoding.selenium.pages.ForgotPasswordPage;
@@ -7,7 +8,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class ForgotPasswordSteps extends WebBaseSteps {
+public class ForgotPasswordSteps {
+
+    protected WebDriver driver;
 
     @When("saya isi form forgot password dengan email valid")
     public void sayaIsiFormForgotPasswordDenganEmailValid() {

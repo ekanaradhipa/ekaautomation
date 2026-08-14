@@ -1,6 +1,7 @@
 package id.co.juaracoding.cucumber.web;
 
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import id.co.juaracoding.selenium.pages.RegisterPage;
@@ -8,7 +9,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class RegisterSteps extends WebBaseSteps {
+public class RegisterSteps {
+
+    protected WebDriver driver;
     
     @When("saya isi form register dengan data valid")
     public void sayaIsiFormRegisterDenganDataValid() {
