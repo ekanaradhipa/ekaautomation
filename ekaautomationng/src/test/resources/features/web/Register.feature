@@ -10,6 +10,12 @@ Feature: Register Web
     When saya isi form register dengan data valid
     And saya isi captcha register dengan benar
     Then tombol register harus dalam keadaan enabled
+
+  @negatif
+   Scenario: Register gagal dengan data invalid
+    When saya isi form register dengan data invalid
+    And saya isi captcha register dengan benar
+    Then tombol register harus dalam keadaan disabled
     
     
      

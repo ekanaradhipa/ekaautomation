@@ -47,6 +47,22 @@ public class RegisterSteps {
         registerPage.fillTaxId("2254567890123456");
         registerPage.fillPostalCode("13345");
     }
+
+    @When("saya isi form register dengan data invalid")
+    public void sayaIsiFormRegisterDenganDataInvalid() {
+        RegisterPage registerPage = new RegisterPage(driver);
+        registerPage.fillUsername(TestConfig.NEW_USER_USERNAME);
+        registerPage.fillPassword(TestConfig.NEW_USER_PASSWORD);
+        registerPage.fillFullName("Customer New");
+        registerPage.fillEmail("customernew@mail.com");
+        registerPage.fillPhoneNumber("08123459990");
+        registerPage.fillAddress("Jl. Alamat Palsu Fake");
+        registerPage.fillBirthDate("1991-01-01");
+        registerPage.fillGender("MALE");
+       // registerPage.fillIdCard("2334567890123456");
+       // registerPage.fillTaxId("2254567890123456");
+        registerPage.fillPostalCode("13345");
+    }
     
     @And("saya isi captcha register dengan benar")
     public void sayaIsiCaptchaRegisterDenganBenar() {
@@ -56,5 +72,10 @@ public class RegisterSteps {
     @Then("tombol register harus dalam keadaan enabled")
     public void tombolRegisterHarusDalamKeadaanEnabled() {
         Assert.assertTrue(new RegisterPage(driver).isSubmitButtonClickable());
+    }
+    
+    @Then("tombol register harus dalam keadaan disabled")
+    public void tombolRegisterHarusDalamKeadaanDisabled() {
+        Assert.assertFalse(new RegisterPage(driver).isSubmitButtonClickable());
     }
 }
