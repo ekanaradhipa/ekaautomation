@@ -26,7 +26,7 @@ public class ForgotApiSteps extends BaseRestAssuredTest {
 
         Response response = specDasar().body(String.format(
                 "{\"email\":\"%s\",\"captcha_answer\":\"%s\",\"captcha_hash\":\"%s\"}",
-                 TestConfig.CUSTOMER_EMAIL,captcha[1], captcha[0])).post("/api/v1/forgot-password");
+                email, captcha[1], captcha[0])).post("/api/v1/forgot-password");
         magicLink = response.jsonPath().getString("data.magic_link");
         System.out.println("email:" + email);
         System.out.println("MAGIC LINK " + magicLink);

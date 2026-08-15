@@ -1,6 +1,5 @@
 package id.co.juaracoding.cucumber.web;
 
-
 import java.time.Duration;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;

@@ -28,7 +28,7 @@ public class BaseRestAssuredTest {
         return specDasar().header("Authorization", "Bearer " + token);
     }
 
-    protected String[] ambilCaptcha() {
+    public String[] ambilCaptcha() {
         Response response = specDasar().get("/api/v1/captcha");
         String hash = response.jsonPath().getString("data.captcha_hash");
         String value = response.jsonPath().getString("data.captcha_value");

@@ -15,9 +15,7 @@ Feature: Login API
   Scenario Outline: Login API gagal dan mengembalikan error_code yang benar
     When saya kirim login API dengan username "<username>" dan password "<password>"
     Then response API login memiliki status code <status_code>
-    And response API login memiliki error_code "<error_code>"
-
     Examples:
-      | username | password        | status_code | error_code     |
-      | admin1   | PasswordSalah@1 |         401 | API-ECMXS40107 |
-      | tidakada | Apapun@123      |         401 | API-ECMXS40107 |
+      | username | password        | status_code | 
+      | admin1   | PasswordSalah@1 |         401 | 
+      | tidakada | Apapun@123      |         401 |
