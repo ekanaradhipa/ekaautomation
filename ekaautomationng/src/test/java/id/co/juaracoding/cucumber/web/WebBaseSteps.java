@@ -19,7 +19,7 @@ public class WebBaseSteps {
     private static final String BASE_URL = "http://localhost:8080";
     private static final String LICENSE_KEY = "d461265dd7323fef9755bb3257275d67";
 
-    protected WebDriver driver;
+    protected static WebDriver driver;
 
     @Before
     public void bukaBrowser() {
@@ -40,38 +40,6 @@ public class WebBaseSteps {
             driver.quit();
     }
 
-    @Given("aplikasi Simple Apps sudah menyala di halaman login")
-    public void aplikasiSudahMenyalaDiHalamanLogin() {
-        driver.get(BASE_URL + "/login");
-        LicenseGatePage licenseGatePage = new LicenseGatePage(driver);
-        if (licenseGatePage.isDisplayed()) {
-            licenseGatePage.activate(LICENSE_KEY);
-            driver.get(BASE_URL + "/login"); // gerbang Lisensi selalu mendarat di /login (setup §8.2)
-        }
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.urlContains("/login"));
-    }
-
-    @Given("aplikasi Simple Apps sudah menyala di halaman register")
-    public void aplikasiSudahMenyalaDiHalamanRegister() {
-        driver.get(BASE_URL + "/register");
-        LicenseGatePage licenseGatePage = new LicenseGatePage(driver);
-        if (licenseGatePage.isDisplayed()) {
-            licenseGatePage.activate(LICENSE_KEY);
-            driver.get(BASE_URL + "/register");
-        }
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.urlContains("/register"));
-    }
-
-    @Given("aplikasi Simple Apps sudah menyala di halaman forgot password")
-    public void aplikasiSudahMenyalaDiHalamanForgot() {
-        driver.get(BASE_URL + "/forgot-password");
-        LicenseGatePage licenseGatePage = new LicenseGatePage(driver);
-        if (licenseGatePage.isDisplayed()) {
-            licenseGatePage.activate(LICENSE_KEY);
-            driver.get(BASE_URL + "/forgot-password");
-        }
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.urlContains("/register"));
-    }
 
     @Given("Saya berada di halaman lupa password Web Simple Apps")
     public void sayaBeradaDiHalamanLupaPasswordWebSimpleApps() {
@@ -84,6 +52,8 @@ public class WebBaseSteps {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.urlContains("/forgot-password"));
     }
 
-   
+   public static WebDriver getDriver() {
+        return driver;
+    }
     
 }

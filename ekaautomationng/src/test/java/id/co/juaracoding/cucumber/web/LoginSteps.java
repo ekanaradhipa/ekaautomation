@@ -1,18 +1,37 @@
 package id.co.juaracoding.cucumber.web;
 
+
 import java.time.Duration;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import id.co.juaracoding.selenium.pages.DashboardPage;
+import id.co.juaracoding.selenium.pages.LicenseGatePage;
 import id.co.juaracoding.selenium.pages.LoginPage;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import id.co.juaracoding.util.TestConfig;
 
-public class LoginSteps extends WebBaseSteps {
+public class LoginSteps {
+
+   private static WebDriver driver;
+
+     @Given("aplikasi Simple Apps sudah menyala di halaman login")
+    public void aplikasiSudahMenyalaDiHalamanLogin() {
+        driver = WebBaseSteps.getDriver();
+        driver.get(TestConfig.BASE_URL + "/login");
+        LicenseGatePage licenseGatePage = new LicenseGatePage(driver);
+        if (licenseGatePage.isDisplayed()) {
+            licenseGatePage.activate(TestConfig.LICENSE_KEY);
+            driver.get(TestConfig.BASE_URL + "/login"); // gerbang Lisensi selalu mendarat di /login (setup §8.2)
+        }
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.urlContains("/login"));
+    }
     
     @When("saya login sebagai {string} dengan password {string}")
     public void sayaLoginSebagaiDenganPassword(String username, String password) {

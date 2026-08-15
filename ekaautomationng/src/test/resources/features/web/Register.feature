@@ -8,7 +8,7 @@ Feature: Register Web
   @smoke
   Scenario: Register berhasil dengan data valid
     When saya isi form register dengan data valid
-    And saya isi captcha dengan benar
+    And saya isi captcha register dengan benar
     Then tombol register harus dalam keadaan enabled
     
     
